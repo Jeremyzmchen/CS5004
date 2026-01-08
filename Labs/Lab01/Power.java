@@ -1,7 +1,7 @@
 /*
 Difference with python:
-1. Assert datatype: java requires assert the datatype of a variable
-2. Class: java requires asserting a class to instantiation and a main class as an entrance
+1. Assert datatype: java requires asserting the datatype of a variable
+2. Class: java requires asserting a class to instantiation and a main method as an entrance
  */
 
 public class Power {
