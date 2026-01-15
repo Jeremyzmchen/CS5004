@@ -1,56 +1,43 @@
-.gradle
+# Gradle
+.gradle/
 build/
 !gradle/wrapper/gradle-wrapper.jar
-!**/src/main/**/build/
-!**/src/test/**/build/
+local.properties
+.incremental/
 
-### IntelliJ IDEA ###
-.idea/modules.xml
-.idea/jarRepositories.xml
-.idea/compiler.xml
-.idea/libraries/
-*.iws
+# IDE
+.idea/
 *.iml
+*.iws
 *.ipr
 out/
-!**/src/main/**/out/
-!**/src/test/**/out/
+gen/
 
-### Eclipse ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-bin/
-!**/src/main/**/bin/
-!**/src/test/**/bin/
+# temp files
+*.log
+*.tmp
+*.bak
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
+# Javadoc & Generated files
+**/Labs/Lab1/*.html
+**/Labs/Lab1/*.css
+**/Labs/Lab1/*.js
+**/Labs/Lab1/jquery/
+**/Labs/Lab1/resources/
+**/Labs/Lab1/index-files/
+**/Labs/Lab1/member-search-index.*
+**/Labs/Lab1/package-search-index.*
+**/Labs/Lab1/type-search-index.*
+**/Labs/Lab1/element-list
+**/Labs/Lab1/package-list
+**/Labs/Lab1/help-doc.html
 
-### VS Code ###
-.vscode/
-
-### Mac OS ###
+# OS
 .DS_Store
+Thumbs.db
 
-# --- Javadoc ---
-*.html
-*.css
-*.js
-package-list
-element-list
-help-doc.html
-index-files/
-resources/
-jquery/
-member-search-index.*
-package-search-index.*
-type-search-index.*
+# style
+intellij-java-google-style.xml
+
+# javadoc
+docs/
