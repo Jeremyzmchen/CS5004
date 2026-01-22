@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.github.Jeremyzmchen'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+javadoc {
+    options.locale = 'en_US'
+    options.encoding = 'UTF-8'
+}
+
+tasks.withType(Javadoc) {
+    options {
+        addStringOption('locale', 'en_US')
+        encoding = 'UTF-8'
+        charSet = 'UTF-8'
+    }
+}
