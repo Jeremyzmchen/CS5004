@@ -5,7 +5,7 @@ This repository contains all labs, assignments, and project for the CS5004: Obje
 
 🛠 Info
 
-Language: Java (OpenJDK 23)
+Language: Java (OpenJDK 17)
 
 Build System: Gradle
 
