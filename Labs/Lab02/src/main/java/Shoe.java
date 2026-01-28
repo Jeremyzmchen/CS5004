@@ -74,10 +74,13 @@ public class Shoe {
     switch (this.color) {
       case WHITE:
         color = "nice white";
+        break;
       case BLACK:
         color = "nice black";
+        break;
       default:
         color = "nice color";
+        break;
     }
 
     return String.format("Shoes details are: the color is &s"
