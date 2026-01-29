@@ -1,8 +1,7 @@
 /**
- * Shoes possesses properties: kind, color, brand, size
+ * Represents a shoe with a kind, color, brand, and size.
  */
 public class Shoe {
-
   private final Kind kind;
   private final Color color;
   private final Brand brand;
@@ -19,6 +18,12 @@ public class Shoe {
   public Shoe(Kind kind, Color color, Brand brand, double size) {
     if (brand == Brand.NIKE && kind == Kind.DRESS) {
       throw new IllegalArgumentException("No DRESS style of NIKE shoes");
+    }
+    if (kind == null || color == null || brand == null) {
+      throw new IllegalArgumentException("Kind, color, brand cannot be blank");
+    }
+    if (size <= 0) {
+      throw new IllegalArgumentException("Size must be positive");
     }
     this.kind = kind;
     this.color = color;
@@ -55,36 +60,35 @@ public class Shoe {
   }
 
   /**
-   * set size of shoes
-   *
-   * @param size the size of shoes
-   */
-  public void setSize(double size) {
-    this.size = size;
-  }
-
-  /**
    * get description of shoes
    *
    * @return description of the shoes
    */
   @Override
   public String toString() {
-    String color;
-    switch (this.color) {
-      case WHITE:
-        color = "nice white";
-        break;
-      case BLACK:
-        color = "nice black";
-        break;
-      default:
-        color = "nice color";
-        break;
-    }
+    String brandStr = switch(brand) {
+      case NIKE -> "Nike";
+      case ADIDAS -> "Adidas";
+      case FILA -> "Fila";
+      case DIOR -> "Dior";
+    };
 
-    return String.format("Shoes details are: the color is &s"
-            + "for &s style, made by &s, the size is &s",
-        color, this.kind, this.brand, this.size);
+    String colorStr = switch (color) {
+      case RED -> "Red";
+      case BLACK -> "Black";
+      case GREEN -> "Green";
+      case BLUE -> "Blue";
+      default -> "Neutral";
+    };
+
+    String kindStr = switch (kind) {
+      case SPORT -> "Sport";
+      case DRESS -> "Dress";
+      case BOOT -> "Boot";
+      case CASUAL -> "Casual";
+    };
+
+    return String.format("Shoes information: %s, %s, %s, %.1f",
+        brandStr, colorStr, kindStr, size);
   }
 }

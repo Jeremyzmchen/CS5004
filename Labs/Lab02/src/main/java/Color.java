@@ -2,9 +2,28 @@
  * Colors of shoes
  */
 public enum Color {
-  WHITE,
+  /**
+   * Red
+   */
   RED,
+
+  /**
+   * Black
+   */
   BLACK,
+
+  /**
+   * Green
+   */
   GREEN,
-  BLUE;
+
+  /**
+   * Blue
+   */
+  BLUE,
+
+  /**
+   * White = Neutral
+   */
+  WHITE;
 }

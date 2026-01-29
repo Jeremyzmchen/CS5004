@@ -1,4 +1,3 @@
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -11,7 +10,7 @@ import org.junit.jupiter.api.Test;
  */
 public class ShoeTest {
 
-  private Shoe soccerShoe;
+  private Shoe sportShoe;
   private Shoe fashionShoe;
 
   /**
@@ -19,19 +18,24 @@ public class ShoeTest {
    */
   @BeforeEach
   void setUp() {
-    soccerShoe = new Shoe(Kind.SPORT, Color.GREEN, Brand.ADIDAS, 42.5);
-    fashionShoe = new Shoe(Kind.DRESS, Color.WHITE, Brand.DIOR, 35.5);
+    sportShoe = new Shoe(Kind.SPORT, Color.WHITE, Brand.ADIDAS, 42.5);
+    fashionShoe = new Shoe(Kind.BOOT, Color.RED, Brand.DIOR, 35.5);
   }
 
   /**
-   * Test Constructor and getters
+   * Test Constructor
    */
   @Test
-  void testShoeCstAndGetter() {
-    assertEquals(Kind.SPORT, soccerShoe.getKind());
-    assertEquals(Brand.ADIDAS, soccerShoe.getBrand());
-    assertEquals(Color.WHITE, fashionShoe.getColor());
-    assertEquals(35.5, fashionShoe.getSize());
+  void testShoeConstructorAndGetters() {
+    assertEquals(Kind.SPORT, sportShoe.getKind());
+    assertEquals(Color.WHITE, sportShoe.getColor());
+    assertEquals(Brand.ADIDAS, sportShoe.getBrand());
+    assertEquals(42.5, sportShoe.getSize(), 1e-9);
+
+    assertEquals(Kind.BOOT, fashionShoe.getKind());
+    assertEquals(Color.RED, fashionShoe.getColor());
+    assertEquals(Brand.DIOR, fashionShoe.getBrand());
+    assertEquals(35.5, fashionShoe.getSize(), 1e-9);
   }
 
   /**
@@ -39,8 +43,11 @@ public class ShoeTest {
    */
   @Test
   void testToString() {
-    assertTrue(fashionShoe.toString().contains("DIOR"));
-    assertTrue(soccerShoe.toString().contains("nice white"));
+    String shoeStr = sportShoe.toString();
+    assertTrue(shoeStr.contains("Sport"));
+    assertTrue(shoeStr.contains("Neutral"));
+    assertTrue(shoeStr.contains("Adidas"));
+    assertTrue(shoeStr.contains("42.5"));
   }
 
   /**
@@ -48,12 +55,10 @@ public class ShoeTest {
    */
   @Test
   void testNikeException() {
-    // exception one
-    assertThrows(IllegalArgumentException.class, () ->
-        new Shoe(Kind.DRESS, Color.WHITE, Brand.NIKE, 42.5));
+    assertThrows(IllegalArgumentException.class,
+        () -> new Shoe(Kind.DRESS, Color.WHITE, Brand.NIKE, 42.5));
 
-    // non-exception one
-    assertDoesNotThrow(() ->
-        new Shoe(Kind.DRESS, Color.RED, Brand.DIOR, 36.5));
+    assertThrows(IllegalArgumentException.class,
+        () -> new Shoe(Kind.SPORT, Color.WHITE, Brand.NIKE, -1.0));
   }
 }
